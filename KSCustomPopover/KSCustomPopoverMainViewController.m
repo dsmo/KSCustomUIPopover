@@ -27,7 +27,15 @@
 #import "KSCustomPopoverMainViewController.h"
 #import "KSCustomPopoverBackgroundView.h"
 
+@interface KSCustomPopoverMainViewController () <UIPopoverPresentationControllerDelegate>
+
+@end
+
 @implementation KSCustomPopoverMainViewController
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller traitCollection:(UITraitCollection *)traitCollection {
+    return UIModalPresentationNone;
+}
 
 @synthesize flipsidePopoverController = _flipsidePopoverController;
 
@@ -43,13 +51,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -95,9 +96,9 @@
 {
     if ([[segue identifier] isEqualToString:@"showAlternate"]) {
         [[segue destinationViewController] setDelegate:self];
-        UIPopoverController *popoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
+        [segue destinationViewController].modalPresentationStyle = UIModalPresentationPopover;
+        UIPopoverPresentationController *popoverController = segue.sourceViewController.popoverPresentationController;
         popoverController.popoverBackgroundViewClass = [KSCustomPopoverBackgroundView class];
-        self.flipsidePopoverController = popoverController;
         
         popoverController.delegate = self;
     }
@@ -105,12 +106,13 @@
 
 - (IBAction)togglePopover:(id)sender
 {
-    if (self.flipsidePopoverController) {
-        [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        self.flipsidePopoverController = nil;
-    } else {
-        [self performSegueWithIdentifier:@"showAlternate" sender:sender];
-    }
+    KSCustomPopoverFlipsideViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"KSCustomPopoverFlipsideViewController"];
+    vc.modalPresentationStyle = UIModalPresentationPopover;
+    vc.popoverPresentationController.delegate = self;
+    vc.popoverPresentationController.popoverBackgroundViewClass = [KSCustomPopoverBackgroundView class];
+    vc.popoverPresentationController.barButtonItem = sender;
+    vc.popoverPresentationController.popoverLayoutMargins = UIEdgeInsetsMake(100, 100, 100, 100);
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

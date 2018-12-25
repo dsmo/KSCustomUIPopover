@@ -106,6 +106,8 @@
         
         self.arrowImageView = [[UIImageView alloc] init];
         [self addSubview:self.arrowImageView];
+        
+        self.layer.shadowColor = UIColor.clearColor.CGColor;
     }
     
     return self;

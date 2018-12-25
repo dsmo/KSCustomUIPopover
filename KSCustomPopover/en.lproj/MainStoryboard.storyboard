@@ -1,90 +1,140 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" colorMatched="YES" initialViewController="2">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Custom Popover Main View Controller-->
         <scene sceneID="4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="KSCustomPopoverMainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="13">
+                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="13">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="14">
-                                        <barButtonItem key="rightBarButtonItem" title="Info" id="15">
-                                            <connections>
-                                                <action selector="togglePopover:" destination="2" id="23"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <leftBarButtonItems>
+                                            <barButtonItem title="Info" id="QaL-Ag-7Bw">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="5gF-6a-fhK"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="T9m-hn-VQu">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="Xme-tz-qPC"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="zow-li-N4K">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="sEr-EQ-3Ep"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="gSv-c0-m0s">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="bbc-az-jZ1"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="IQO-s4-0Bg">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="yqr-nz-sgy"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Info" id="15">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="23"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="5oN-ub-reF">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="9oS-r6-uTo"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="wKm-Jc-Zuk">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="HzT-YO-VXl"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="iDo-xF-LTY">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="s6R-MX-5tG"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="dus-Ya-itr">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="Z5k-Nu-4t0"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="wmQ-Q3-ehH">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="lVi-mj-P2v"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="RJH-OS-pVe">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="UVI-jK-dTE"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Info" id="EN0-Fu-xFt">
+                                                <connections>
+                                                    <action selector="togglePopover:" destination="2" id="Ogy-bl-vct"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <connections>
-                        <segue destination="5" kind="popover" identifier="showAlternate" popoverAnchorBarButtonItem="15" id="22">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
-                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-286" y="15"/>
+            <point key="canvasLocation" x="-223.4375" y="8.7890625"/>
         </scene>
+        <!--Custom Popover Flipside View Controller-->
         <scene sceneID="7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6" sceneMemberID="firstResponder"/>
-                <viewController id="5" customClass="KSCustomPopoverFlipsideViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KSCustomPopoverFlipsideViewController" id="5" customClass="KSCustomPopoverFlipsideViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="Wwf-68-Lxi">
-                                <rect key="frame" x="20" y="49" width="280" height="783"/>
+                                <rect key="frame" x="20" y="49" width="280" height="955"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Info" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="RnC-yg-Etz">
                                 <rect key="frame" x="20" y="20" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="836" y="101"/>
+            <point key="canvasLocation" x="653.125" y="59.179687499999993"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="KSCustomPopoverFlipsideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KSCustomPopoverFlipsideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="KSCustomPopoverMainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KSCustomPopoverMainViewController.h"/>
-        </class>
-    </classes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
 </document>
