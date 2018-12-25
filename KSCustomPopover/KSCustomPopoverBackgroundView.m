@@ -26,8 +26,9 @@
 #import "KSCustomPopoverBackgroundView.h"
 
 // Predefined arrow image width and height
-#define ARROW_WIDTH 35.0
-#define ARROW_HEIGHT 19.0
+#define ARROW_WIDTH 15.0
+#define ARROW_HEIGHT 7.0
+#define ARROW_BCG_OVERLAP 1.0
 
 // Predefined content insets
 #define TOP_CONTENT_INSET 8
@@ -64,7 +65,7 @@
 // The height of the arrow (measured in points) from its base to its tip.
 + (CGFloat)arrowHeight
 {
-    return ARROW_HEIGHT;
+    return ARROW_HEIGHT - ARROW_BCG_OVERLAP;
 }
 
 // The insets for the content portion of the popover.
@@ -95,12 +96,12 @@
 {    
     if (self = [super initWithFrame:frame])
     {
-        _topArrowImage = [UIImage imageNamed:@"popover-black-top-arrow-image.png"];
-        _leftArrowImage = [UIImage imageNamed:@"popover-black-left-arrow-image.png"];
-        _bottomArrowImage = [UIImage imageNamed:@"popover-black-bottom-arrow-image.png"];
-        _rightArrowImage = [UIImage imageNamed:@"popover-black-right-arrow-image.png"];
+        _topArrowImage = [UIImage imageNamed:@"popover-black-top-arrow-image"];
+        _leftArrowImage = [UIImage imageNamed:@"popover-black-left-arrow-image"];
+        _bottomArrowImage = [UIImage imageNamed:@"popover-black-bottom-arrow-image"];
+        _rightArrowImage = [UIImage imageNamed:@"popover-black-right-arrow-image"];
         
-        UIImage *popoverBackgroundImage = [[UIImage imageNamed:@"popover-black-bcg-image.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(49, 46, 49, 45)];
+        UIImage *popoverBackgroundImage = [UIImage imageNamed:@"popover-black-bcg-image"];
         self.popoverBackgroundImageView = [[UIImageView alloc] initWithImage:popoverBackgroundImage];
         [self addSubview:self.popoverBackgroundImageView];
         
@@ -132,13 +133,13 @@
     CGFloat arrowImageHeight = ARROW_HEIGHT;
     
     // Radius value you used to make rounded corners in your popover background image
-    CGFloat cornerRadius = 9;
+    CGFloat cornerRadius = 4;
     
     switch (self.arrowDirection) {
             
         case UIPopoverArrowDirectionUp:
             
-            popoverImageOriginY = ARROW_HEIGHT - 2;
+            popoverImageOriginY = ARROW_HEIGHT - ARROW_BCG_OVERLAP;
             popoverImageHeight = self.bounds.size.height - ARROW_HEIGHT;
             
             // Calculating arrow x position using arrow offset, arrow width and popover width
@@ -155,14 +156,14 @@
             
         case UIPopoverArrowDirectionDown:
             
-            popoverImageHeight = self.bounds.size.height - ARROW_HEIGHT + 2;
+            popoverImageHeight = self.bounds.size.height - ARROW_HEIGHT + ARROW_BCG_OVERLAP;
             
             arrowImageOriginX = roundf((self.bounds.size.width - ARROW_WIDTH) / 2 + self.arrowOffset);
             
             arrowImageOriginX = MIN(arrowImageOriginX, self.bounds.size.width - ARROW_WIDTH - cornerRadius);
             arrowImageOriginX = MAX(arrowImageOriginX, cornerRadius);
             
-            arrowImageOriginY = popoverImageHeight - 2;
+            arrowImageOriginY = popoverImageHeight - ARROW_BCG_OVERLAP;
             
             self.arrowImageView.image = _bottomArrowImage;
             
@@ -170,7 +171,7 @@
             
         case UIPopoverArrowDirectionLeft:
             
-            popoverImageOriginX = ARROW_HEIGHT - 2;
+            popoverImageOriginX = ARROW_HEIGHT - ARROW_BCG_OVERLAP;
             popoverImageWidth = self.bounds.size.width - ARROW_HEIGHT;
             
             arrowImageOriginY = roundf((self.bounds.size.height - ARROW_WIDTH) / 2 + self.arrowOffset);
@@ -187,9 +188,9 @@
             
         case UIPopoverArrowDirectionRight:
             
-            popoverImageWidth = self.bounds.size.width - ARROW_HEIGHT + 2;
+            popoverImageWidth = self.bounds.size.width - ARROW_HEIGHT + ARROW_BCG_OVERLAP;
             
-            arrowImageOriginX = popoverImageWidth - 2;
+            arrowImageOriginX = popoverImageWidth - ARROW_BCG_OVERLAP;
             arrowImageOriginY = roundf((self.bounds.size.height - ARROW_WIDTH) / 2 + self.arrowOffset);
             
             arrowImageOriginY = MIN(arrowImageOriginY, self.bounds.size.height - ARROW_WIDTH - cornerRadius);
@@ -205,7 +206,7 @@
         default:
             
             // For popovers without arrows (Thanks Martin!)
-            popoverImageHeight = self.bounds.size.height - ARROW_HEIGHT + 2;
+            popoverImageHeight = self.bounds.size.height - ARROW_HEIGHT + ARROW_BCG_OVERLAP;
             
             break;
     }

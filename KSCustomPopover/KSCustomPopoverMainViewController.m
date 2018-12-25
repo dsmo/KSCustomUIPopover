@@ -87,23 +87,6 @@
     self.flipsidePopoverController = nil;
 }
 
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    self.flipsidePopoverController = nil;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self];
-        [segue destinationViewController].modalPresentationStyle = UIModalPresentationPopover;
-        UIPopoverPresentationController *popoverController = segue.sourceViewController.popoverPresentationController;
-        popoverController.popoverBackgroundViewClass = [KSCustomPopoverBackgroundView class];
-        
-        popoverController.delegate = self;
-    }
-}
-
 - (IBAction)togglePopover:(id)sender
 {
     KSCustomPopoverFlipsideViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"KSCustomPopoverFlipsideViewController"];
@@ -111,7 +94,7 @@
     vc.popoverPresentationController.delegate = self;
     vc.popoverPresentationController.popoverBackgroundViewClass = [KSCustomPopoverBackgroundView class];
     vc.popoverPresentationController.barButtonItem = sender;
-    vc.popoverPresentationController.popoverLayoutMargins = UIEdgeInsetsMake(100, 100, 100, 100);
+    vc.popoverPresentationController.popoverLayoutMargins = UIEdgeInsetsMake(200, 200, 200, 200);
     [self presentViewController:vc animated:YES completion:nil];
 }
 
